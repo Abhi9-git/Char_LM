@@ -1,4 +1,4 @@
-import Bigram.Bigram_model as Bigram_model
+import Bigram_model
 import pickle
 import torch
 import torch.nn.functional as F
@@ -39,3 +39,4 @@ def generate():
 
 for _ in range(10):
     print(generate(),end='\t')
+print()

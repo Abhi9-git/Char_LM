@@ -4,7 +4,7 @@ import pickle
 import torch.nn as nn
 import torch.nn.functional as F
 
-words= open("data/shakespeare_100k.txt", "r").read().splitlines()
+words= open("../data/shakespeare_100k.txt", "r").read().splitlines()
 
 lookup=sorted(list(set(''.join(words))))
 stoi={s:i+1 for i,s in enumerate(lookup)}
