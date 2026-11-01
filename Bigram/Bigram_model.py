@@ -44,7 +44,7 @@ ys = torch.tensor(ys)
 
 
 learning_rate = 2
-epochs = 100
+epochs = 50
 
 def train():
     for epoch in range(epochs):
@@ -72,7 +72,7 @@ def train():
     torch.save({
         'embedding': embedding.state_dict(),
         'W': W.detach()
-    }, 'bigram_model.pth')
+    }, 'checkpoint.pth')
 
     print("Parameters saved successfully!")
 
