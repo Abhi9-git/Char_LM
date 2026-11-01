@@ -128,7 +128,7 @@ def train(total_iterations=100):
 
     start_iteration = load_checkpoint()
 
-    for i in range(start_iteration, total_iterations):
+    for i in range(total_iterations):
 
         # Forward pass
         emb = C[Xtr]
@@ -150,8 +150,8 @@ def train(total_iterations=100):
                 p -= 0.1 * p.grad
 
 
+        print(f"Iteration: {i+1}/{total_iterations} | Loss: {loss.item():.4f}")
         if (i + 1) % 50 == 0:
-            print(f"Iteration: {i+1}/{total_iterations} | Loss: {loss.item():.4f}")
             save_checkpoint(i + 1)
 
     print(f"\nTraining completed. Final loss: {loss.item():.4f}")
