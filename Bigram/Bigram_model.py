@@ -18,8 +18,8 @@ embedding_dim = 8
 embedding = nn.Embedding(vocab_size, embedding_dim)
 W = torch.randn(embedding_dim, vocab_size, requires_grad=True)
 
-if os.path.exists('bigram_model.pth'):
-    checkpoint = torch.load('bigram_model.pth', weights_only=True)
+if os.path.exists('checkpoint.pth'):
+    checkpoint = torch.load('checkpoint.pth', weights_only=True)
 
     embedding.load_state_dict(checkpoint['embedding'])
     W = checkpoint['W'].clone().detach().requires_grad_(True)
@@ -44,7 +44,7 @@ ys = torch.tensor(ys)
 
 
 learning_rate = 2
-epochs = 50
+epochs = 5000
 
 def train():
     for epoch in range(epochs):
