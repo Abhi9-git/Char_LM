@@ -11,7 +11,7 @@ stoi={s:i+1 for i,s in enumerate(lookup)}
 stoi['.']=0
 itos={i:s for s,i in stoi.items()}
 
-window_size = 3
+window_size = 5
 def build_dataset(words):
     X, Y =[], []
 
@@ -40,7 +40,7 @@ Xts, Yts = build_dataset(words[n2:])
 
 
 vocab_size = len(stoi)
-embedding_dim = 3
+embedding_dim = 5
 
 C = torch.randn((vocab_size, embedding_dim))
 W1 = torch.randn((window_size * embedding_dim, 300))
@@ -53,6 +53,8 @@ W3 = torch.randn((100, vocab_size))
 b3 = torch.randn(vocab_size)
 
 parameters = [C, W1, b1, W2, b2, W3, b3]
+
+# print(sum(p.nelement() for p in parameters) + 'parameters')
 
 
 CHECKPOINT_PATH = "checkpoint.pth"
@@ -132,7 +134,7 @@ def train(total_iterations=100):
 
         # Forward pass
         emb = C[Xtr]
-        h1 = torch.tanh(emb.view(-1, 9) @ W1 + b1)
+        h1 = torch.tanh(emb.view(-1, 25) @ W1 + b1)
         h2 = torch.relu(h1 @ W2 + b2)
         logits = h2 @ W3 + b3
 
