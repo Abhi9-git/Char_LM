@@ -62,6 +62,6 @@ def generate():
 # predict 10 words
 print("\nGenerated Words:\n")
 
-for i in range(10):
+for i in range(20):
     word = generate()
     print(f"{i+1}. {word}")
