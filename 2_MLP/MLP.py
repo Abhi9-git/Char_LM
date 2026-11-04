@@ -42,6 +42,8 @@ Xts, Yts = build_dataset(words[n2:])
 vocab_size = len(stoi)
 embedding_dim = 5
 
+# introduced normalization 
+
 C = torch.randn((vocab_size, embedding_dim))
 W1 = torch.randn((window_size * embedding_dim, 300))*0.1
 b1 = torch.randn(300)*0.1
