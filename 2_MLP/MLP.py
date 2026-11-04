@@ -43,14 +43,14 @@ vocab_size = len(stoi)
 embedding_dim = 5
 
 C = torch.randn((vocab_size, embedding_dim))
-W1 = torch.randn((window_size * embedding_dim, 300))
-b1 = torch.randn(300)
+W1 = torch.randn((window_size * embedding_dim, 300))*0.1
+b1 = torch.randn(300)*0.1
 
-W2 = torch.randn((300, 100))
-b2 = torch.randn(100)
+W2 = torch.randn((300, 100))*0.1
+b2 = torch.randn(100)*0.1
 
-W3 = torch.randn((100, vocab_size))
-b3 = torch.randn(vocab_size)
+W3 = torch.randn((100, vocab_size))*0.1
+b3 = torch.randn(vocab_size)*0.1
 
 parameters = [C, W1, b1, W2, b2, W3, b3]
 
