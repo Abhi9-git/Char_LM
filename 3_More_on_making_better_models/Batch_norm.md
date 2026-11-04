@@ -7,8 +7,12 @@ Normalize each activation: x̂ᵢ = (xᵢ − μ) / √(σ² + ε)
 ε is a tiny constant that prevents division by zero.
 Scale and shift: yᵢ = γ · x̂ᵢ + β
 γ and β are learnable parameters, trained by gradient descent.
-They let the network undo the normalization if that turns out to be optimal.
-Update running statistics: running = momentum · running + (1 − momentum) · batch (Do this for both the mean and the variance.)
+They let the network move the normalization if that turns out to be optimal.
+Update running statistics: running = (1 - momentum) · running + momentum · batch 
+(Do this for both the mean and the variance.):
+
+                     bnmean_running = 0.999 * bnmean_running + 0.001 * bnmeani
+                     bnstd_running = 0.999 * bnstd_running + 0.001 * bnstdi
 
 
 Inference
